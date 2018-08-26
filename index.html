@@ -1,10 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>GRID</title>
+    <script type="text/javascript" src="../js/arrNotValid_withObj 26.08.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
+<!--
+    есть двумерный массив данных, исходя из него построить таблицу в html
+        var arr = [
+        ["test", 2, "test", " test " ],
+        [4,"test",6],...
+        ];
+        и нарисовать таблицу-->
+<div id="controls">
 
-</body>
-</html>
+</div>
+<!-- <table id = 'tableForArr'></table>-->
+
+<!-- <script src="https://code.jquery.com/jquery-2.1.0.js"></script>-->
+<script type="text/javascript">
+    var arrHeader = ['First Name','Last Name','Age', 'Birthday']
+
+    var colums = [
+        {propertyName: 'firstName', title: 'First Name', dataType: 'string', columnWidth: '30%'},
+        {propertyName: 'lastName', title: 'Last Name', dataType: 'string', columnWidth: '30%'},
+        {propertyName: 'age', title: 'Age', dataType: 'number', columnWidth: '20%'},
+        {propertyName: 'birthDate', title: 'Birth Date', dataType: 'date', columnWidth: '20%'}
+    ]
+    var data = [{
+        id: 1,
+        firstName: 'Vasya',
+        lastName: 'Ivanov',
+        age: 12,
+        birthDate: '16.07.1991'
+    },
+        {
+            id: 2,
+            firstName: 'Vasya',
+            lastName: 'Ivanov',
+            age: 12,
+            birthDate: '16.07.1991'
+        },
+        {
+            id: 3,
+            firstName: 'Vasya',
+            lastName: 'Ivanov',
+            age: 12,
+            birthDate: '16.07.1991'
+        }]
+    var table = new SmartTable ( {
+        data: data,
+        colums: colums,
+        containerId: 'controls'
+    } )
+
+    var s = {
+        id: 1,
+        firstName: 'Vasya',
+        lastName: 'Morozov',
+        age: 12,
+        birthDate: '16.07.1991'
+    }
+
+    table.addElement(s)
+
+    var dataNew = [
+        {
+            id: 1,
+            firstName: 'Vasya',
+            lastName: 'Ivanov',
+            age: 12,
+            birthDate: '16.07.1991'
+        },
+        {
+            id: 2,
+            firstName: 'Vasya',
+            lastName: 'Ivanov',
+            age: 12,
+            birthDate: '16.07.1991'
+        },
+        {
+            id: 3,
+            firstName: 'Vasya',
+            lastName: 'Kulik',
+            age: 12,
+            birthDate: '16.07.1991'
+        }
+    ]
+    table.addSomeElements(dataNew)
+    //table.deleteAll()
+    function formatDate(date) {
+        var dd = date.getDate();
+        if (dd < 10) dd = '0' + dd;
+        var mm = date.getMonth() + 1;
+        if (mm < 10) mm = '0' + mm;
+        var yy = date.getFullYear() % 100;
+        if (yy < 10) yy = '0' + yy;
+        return dd + '.' + mm + '.' + yy;
+    };
+    //console.log(formatDate(arr[0][3]));
+    //new drawArray(arr,'tableForArr')
+
+
+    </html>

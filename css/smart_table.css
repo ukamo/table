@@ -1,0 +1,20 @@
+#tableForArr {
+    width: 100%;
+    border-collapse: collapse;
+    border:none;
+    border-top:2px solid silver;
+}
+
+#tableForArr th, #tableForArr td {
+    border: #ccc 1px solid;
+    padding: 5px 10px;
+    border:none;
+    border-bottom:1px solid silver;
+    text-align: center;
+
+}
+
+#tableForArr tr:hover {
+    background: #786b59; /* Цвет фона под ссылкой */
+    color: #ffe; /* Цвет ссылки */
+}
