@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>GRID</title>
-    <script type="text/javascript" src="js/smart_table.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/smart_table.css">
+    <script type="text/javascript" src="../js/arrNotValid_withObj 27.08.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript">
     </script>
 </head>
@@ -19,80 +19,91 @@
 <div id="controls">
 
 </div>
+<input type="button" id="addTable" value ='добавить таблицу' >
+<input type="button" id = 'addStr' value ='добавить строчку' >
+<input type="button" id = 'addStrings' value ='добавить строчкИ' >
+<input type="button" id = 'deleteAllTable' value ='удалить всю таблицу' >
+<input type="button" id = 'deleteStr' value ='удалить cтрочку' >
+
 <!-- <table id = 'tableForArr'></table>-->
 
 <!-- <script src="https://code.jquery.com/jquery-2.1.0.js"></script>-->
 <script type="text/javascript">
+    /*
     var arrHeader = ['First Name','Last Name','Age', 'Birthday']
 
-    var colums = [
+        var colums = [
         {propertyName: 'firstName', title: 'First Name', dataType: 'string', columnWidth: '30%'},
         {propertyName: 'lastName', title: 'Last Name', dataType: 'string', columnWidth: '30%'},
         {propertyName: 'age', title: 'Age', dataType: 'number', columnWidth: '20%'},
         {propertyName: 'birthDate', title: 'Birth Date', dataType: 'date', columnWidth: '20%'}
-    ]
-    var data = [{
+        ]
+        var data = [{
         id: 1,
         firstName: 'Vasya',
         lastName: 'Ivanov',
         age: 12,
-        birthDate: '16.07.1991'
-    },
-        {
-            id: 2,
-            firstName: 'Vasya',
-            lastName: 'Ivanov',
-            age: 12,
-            birthDate: '16.07.1991'
+        birthDate: '16.07.1990'
         },
         {
-            id: 3,
-            firstName: 'Vasya',
-            lastName: 'Ivanov',
-            age: 12,
-            birthDate: '16.07.1991'
+        id: 2,
+        firstName: 'Vasya',
+        lastName: 'Ivanov',
+        age: 12,
+        birthDate: '16.07.1991'
+        },
+        {
+        id: 3,
+        firstName: 'Vasya',
+        lastName: 'Ivanov',
+        age: 12,
+        birthDate: '16.07.1992'
         }]
-    var table = new SmartTable ( {
+        var table = new SmartTable ( {
         data: data,
         colums: colums,
         containerId: 'controls'
-    } )
+        } )
 
-    var s = {
+        var s = {
         id: 1,
         firstName: 'Vasya',
         lastName: 'Morozov',
         age: 12,
-        birthDate: '16.07.1991'
-    }
-
-    table.addElement(s)
-
-    var dataNew = [
-        {
-            id: 1,
-            firstName: 'Vasya',
-            lastName: 'Ivanov',
-            age: 12,
-            birthDate: '16.07.1991'
-        },
-        {
-            id: 2,
-            firstName: 'Vasya',
-            lastName: 'Ivanov',
-            age: 12,
-            birthDate: '16.07.1991'
-        },
-        {
-            id: 3,
-            firstName: 'Vasya',
-            lastName: 'Kulik',
-            age: 12,
-            birthDate: '16.07.1991'
+        birthDate: '16.07.1993'
         }
+
+        table.addElement(s)
+
+        var dataNew = [
+    {
+    id: 1,
+    firstName: 'Vasya',
+    lastName: 'Ivanov',
+    age: 12,
+    birthDate: '16.07.1994'
+    },
+    {
+    id: 2,
+    firstName: 'Vasya',
+    lastName: 'Ivanov',
+    age: 12,
+    birthDate: '16.07.1995'
+    },
+    {
+    id: 3,
+    firstName: 'Vasya',
+    lastName: 'Kulik',
+    age: 12,
+    birthDate: '16.07.1996'
+    }
     ]
     table.addSomeElements(dataNew)
     //table.deleteAll()
+
+    table.deleteEl(1);*/
+
+
     function formatDate(date) {
         var dd = date.getDate();
         if (dd < 10) dd = '0' + dd;
@@ -102,8 +113,98 @@
         if (yy < 10) yy = '0' + yy;
         return dd + '.' + mm + '.' + yy;
     };
-    //console.log(formatDate(arr[0][3]));
-    //new drawArray(arr,'tableForArr')
+
+    var table;
+
+    var addTable = document.getElementById('addTable');
+    addTable.addEventListener('click',function(){
+        var colums = [
+            {propertyName: 'firstName', title: 'First Name', dataType: 'string', columnWidth: '30%'},
+            {propertyName: 'lastName', title: 'Last Name', dataType: 'string', columnWidth: '30%'},
+            {propertyName: 'age', title: 'Age', dataType: 'number', columnWidth: '20%'},
+            {propertyName: 'birthDate', title: 'Birth Date', dataType: 'date', columnWidth: '20%'}
+        ]
+        var data = [{
+            id: 1,
+            firstName: 'Vasya',
+            lastName: 'Ivanov',
+            age: 12,
+            birthDate: '16.07.1990'
+        },
+            {
+                id: 2,
+                firstName: 'Vasya',
+                lastName: 'Ivanov',
+                age: 12,
+                birthDate: '16.07.1991'
+            },
+            {
+                id: 3,
+                firstName: 'Vasya',
+                lastName: 'Ivanov',
+                age: 12,
+                birthDate: '16.07.1992'
+            }]
+        table = new SmartTable ( {
+            data: data,
+            colums: colums,
+            containerId: 'controls'
+        } )
+    },false);
+
+    var addStr = document.getElementById('addStr');
+    addStr.addEventListener('click',function(){
+        var s = {
+            id: 1,
+            firstName: 'Vasya',
+            lastName: 'Morozov',
+            age: 12,
+            birthDate: '16.07.1993'
+        }
+        table.addElement(s)
+    },false);
+
+    var addStrings = document.getElementById('addStrings');
+    addStrings.addEventListener('click',function(){
+        var dataNew = [
+            {
+                id: 1,
+                firstName: 'Vasya',
+                lastName: 'Ivanov',
+                age: 12,
+                birthDate: '16.07.1994'
+            },
+            {
+                id: 2,
+                firstName: 'Vasya',
+                lastName: 'Ivanov',
+                age: 12,
+                birthDate: '16.07.1995'
+            },
+            {
+                id: 3,
+                firstName: 'Vasya',
+                lastName: 'Kulik',
+                age: 12,
+                birthDate: '16.07.1996'
+            }
+        ]
+        table.addSomeElements(dataNew)
+    },false);
+
+
+
+    var deleteAllTable = document.getElementById('deleteAllTable');
+    deleteAllTable.addEventListener('click',function(){
+        table.deleteAll();
+    },false);
+
+    var deleteStr = document.getElementById('deleteStr');
+    deleteStr.addEventListener('click',function(){
+        table.deleteEl(1);
+    },false);
+
+
 
 
 

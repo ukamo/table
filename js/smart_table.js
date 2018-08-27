@@ -102,13 +102,31 @@ deleteAll.prototype=
 deleteAll.prototype.constructor=deleteAll;
 
 
+SmartTable.prototype.deleteEl = function (ind){
+    var table = document.getElementById(this.containerId).children[0];
+    var trs = table.rows;
+    for(var i=0; i<trs.length; i++){
+        if(i == ind){
+            table.deleteRow(i)
+        }
+    }
+
+};
+
+function deleteEl(ind) {
+    this.deleteEl(ind);
+}
+deleteEl.prototype=
+    Object.create(SmartTable.prototype);
+deleteEl.prototype.constructor=deleteEl;
+//smartTable.deleteEl(idx)
+
+
+
 /* table.deleteElement()
 table.deleteAll()
 deleteElement пока не знаю как нам реализовать
 опустим*/
-
-
-
 /*    В конструктуре избаваиться от аргументов, на этот раз будет всего один аргумент options
     options - это будет объект js
     пример
@@ -172,5 +190,9 @@ birthDate: '16.07.1991'
 }
 ]
 table.addElements(data)*/
-
+/*написать функцию удаления
+smartTable.delete(idx)
+idx - номер эелемента или строки которую нужно удалить
+первый элемент принять за 0, т.е. отсчет идет с 0
+удалять эелемент из data и html*/
 
