@@ -48,11 +48,11 @@ SmartTable.prototype.addElement = function (objForCut){
         td.innerHTML = rez;
     }
 };
-function addElement(objForCut) {
+/*function addElement(objForCut) {
     this.addElement(objForCut);
 
 
-}
+}*/
 /*addElement.prototype=
     Object.create(SmartTable.prototype);
 addElement.prototype.constructor=addElement;
@@ -76,13 +76,13 @@ SmartTable.prototype.addSomeElements = function (arrSomeEl){
     }
 };
 
-function addSomeElements() {
+/*function addSomeElements() {
     this.addSomeElements(arrSomeEl)
 
 }
 addSomeElements.prototype=
     Object.create(SmartTable.prototype);
-addSomeElements.prototype.constructor = addSomeElements;
+addSomeElements.prototype.constructor = addSomeElements;*/
 
 //
 
@@ -92,6 +92,7 @@ SmartTable.prototype.deleteAll = function (){
     table.parentNode.removeChild(table);
 };
 
+/*
 function deleteAll() {
     this.deleteAll();
 }
@@ -100,6 +101,7 @@ function deleteAll() {
 deleteAll.prototype=
     Object.create(SmartTable.prototype);
 deleteAll.prototype.constructor=deleteAll;
+*/
 
 
 SmartTable.prototype.deleteEl = function (ind){
@@ -113,12 +115,12 @@ SmartTable.prototype.deleteEl = function (ind){
 
 };
 
-function deleteEl(ind) {
+/*function deleteEl(ind) {
     this.deleteEl(ind);
 }
 deleteEl.prototype=
     Object.create(SmartTable.prototype);
-deleteEl.prototype.constructor=deleteEl;
+deleteEl.prototype.constructor=deleteEl;*/
 //smartTable.deleteEl(idx)
 
 
