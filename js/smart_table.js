@@ -53,7 +53,8 @@ SmartTable.prototype.addSomeElements = function (arrSomeEl){
     this.arrSomeEl = arrSomeEl;
     var table = document.getElementById(this.containerId).children[0];
     for ( var i=0; i <this.arrSomeEl.length;i++){
-        var tr = document.createElement('tr');
+        this.addElement(this.arrSomeEl[i]);
+        /*var tr = document.createElement('tr');
         table.appendChild(tr);
 
         for (var j=0; j <this.colums.length;j++){
@@ -63,7 +64,7 @@ SmartTable.prototype.addSomeElements = function (arrSomeEl){
             var td = document.createElement('td');
             tr.appendChild(td);
             td.innerHTML = rez;
-        }
+        }*/
     }
 };
 
