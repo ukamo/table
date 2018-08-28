@@ -6,10 +6,10 @@
 }
 
 #tableForArr th, #tableForArr td {
-    border: #9E9E9E 1px solid;
+    border: #9E9E9E 1px solid; /*TODO !!!!*/
     padding: 5px 10px;
     border:none;
-    border:1px solid silver;
+    border:1px solid silver; /* TODO Double created border property */
     text-align: center;
 
 }
