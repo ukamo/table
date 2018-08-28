@@ -27,7 +27,7 @@
 
 <!-- <table id = 'tableForArr'></table>-->
 
-<!-- <script src="https://code.jquery.com/jquery-2.1.0.js"></script>-->
+<!--<script src="https://code.jquery.com/jquery-2.1.0.js"></script>-->
 <script type="text/javascript">
     /*
     var arrHeader = ['First Name','Last Name','Age', 'Birthday']
@@ -117,6 +117,7 @@
     var table;
 
     var addTable = document.getElementById('addTable');
+    var arr_td = document.getElementsByTagName('tr');
     addTable.addEventListener('click',function(){
         var colums = [
             {propertyName: 'firstName', title: 'First Name', dataType: 'string', columnWidth: '30%'},
@@ -149,47 +150,50 @@
             data: data,
             colums: colums,
             containerId: 'controls'
-        } )
+        } );
+        styleBackground(arr_td);
     },false);
 
     var addStr = document.getElementById('addStr');
     addStr.addEventListener('click',function(){
         var s = {
-            id: 1,
+            id: 4,
             firstName: 'Vasya',
             lastName: 'Morozov',
             age: 12,
             birthDate: '16.07.1993'
         }
-        table.addElement(s)
+        table.addElement(s);
+        styleBackground(arr_td);
     },false);
 
     var addStrings = document.getElementById('addStrings');
     addStrings.addEventListener('click',function(){
         var dataNew = [
             {
-                id: 1,
+                id: 5,
                 firstName: 'Vasya',
                 lastName: 'Ivanov',
                 age: 12,
                 birthDate: '16.07.1994'
             },
             {
-                id: 2,
+                id: 6,
                 firstName: 'Vasya',
                 lastName: 'Ivanov',
                 age: 12,
                 birthDate: '16.07.1995'
             },
             {
-                id: 3,
+                id: 7,
                 firstName: 'Vasya',
                 lastName: 'Kulik',
                 age: 12,
                 birthDate: '16.07.1996'
             }
-        ]
-        table.addSomeElements(dataNew)
+        ];
+        table.addSomeElements(dataNew);
+        styleBackground(arr_td);
     },false);
 
 
@@ -201,13 +205,34 @@
 
     var deleteStr = document.getElementById('deleteStr');
     deleteStr.addEventListener('click',function(){
-        table.deleteEl(1);
+        var arrTagTr = document.getElementsByTagName('tr');
+        for(var i=0; i < arrTagTr.length; i++){
+            var tr = arrTagTr[i];
+            if (tr.style.backgroundColor != ''){
+                var indexForData = arrTagTr[i].getAttribute('data-id');
+                table.deleteEl(indexForData);
+                //table.deleteEl(1);
+            }
+        }
     },false);
 
+    function styleBackground(arr_td){
+        for(var i=0;i<arr_td.length;i++){
+            arr_td[i].onclick=function(){
+                if ((this).style.backgroundColor == ""){
+                    (this).style.backgroundColor = "#E6EE9C";
+                } else {
+                    (this).style.backgroundColor = "";
+                }
+            }
+        }
+    }
 
-
-
-
+    /*function f_over(){
+    document.getElementById(???). }
+    function f_out()
+    { var p02 = document.getElementById(???).style; p02.backgroundColor = ""; }
+    */
 </script>
 </body>
 </html>
