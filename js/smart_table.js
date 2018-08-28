@@ -21,6 +21,8 @@ SmartTable.prototype.drawArray = function (){
         var tr = document.createElement('tr');
         table.appendChild(tr);
         var elementObj = this.arr[i];
+
+        //TODO replace this code on tr.setAttribute('data-id',this.arr[i].id)
         for(var key in elementObj){
             if(key == 'id'){
                 var nameDataId = elementObj[key];
@@ -28,6 +30,7 @@ SmartTable.prototype.drawArray = function (){
 
             }
         }
+        //TODO END
         for (var j=0; j <this.colums.length;j++){
 
             var column = this.colums[j];
@@ -48,6 +51,8 @@ SmartTable.prototype.addElement = function (objForCut){
     var table = document.getElementById(this.containerId).children[0];
     var tr = document.createElement('tr');
     table.appendChild(tr);
+
+    //TODO replace this code on tr.setAttribute('data-id',this.arr[i].id)
     for(var key in objForCut){
         if(key == 'id'){
             var nameDataId = objForCut[key]
@@ -55,6 +60,7 @@ SmartTable.prototype.addElement = function (objForCut){
 
         }
     }
+    //TODO END
     for (var j=0; j <this.colums.length;j++){
         var column = this.colums[j];
         var rez =objForCut[column.propertyName];
@@ -69,6 +75,7 @@ SmartTable.prototype.addSomeElements = function (arrSomeEl){
     //  var table = document.getElementById(this.containerId).children[0];
     for ( var i=0; i <this.arrSomeEl.length;i++){
         this.addElement(this.arrSomeEl[i]);
+        //TODO DELETE COMMENTS!
         /*var tr = document.createElement('tr');
         table.appendChild(tr);
 
@@ -80,6 +87,7 @@ SmartTable.prototype.addSomeElements = function (arrSomeEl){
             tr.appendChild(td);
             td.innerHTML = rez;
         }*/
+        //TODO END
     }
 };
 
@@ -98,16 +106,19 @@ SmartTable.prototype.deleteEl = function (ind){
             table.deleteRow(i)
         }
     }
+
+    //TODO REMOVE USEFUL COMMENT
     /*  var trs = table.rows;
       for(var i=0; i<trs.length; i++){
           if(i == ind){
               table.deleteRow(i)
           }
       }*/
-
+    //TODO END
 
 };
 
+//TODO REMOVE IT!
 /*Связать данные в таблице с htm
 Для этого добавить в каждую tr таблицы атрибут data-id
 Типа <tr data-id=1...>...
@@ -125,6 +136,6 @@ SmartTable.prototype.deleteEl = function (ind){
 т.е. в smart Table у тебя есть свойство arr переименуй это в data
 data должна быть всегда синхронизирована с html
 */
-
+//TODO END
 
 
