@@ -24,7 +24,7 @@ SmartTable.prototype.drawArray = function (){
 
         //TODO replace this code on tr.setAttribute('data-id',this.arr[i].id)
         for(var key in elementObj){
-            if(key == 'id'){
+            if(key == 'id'){////TODO replace this code on tr.setAttribute('data-id',this.arr[i].id)
                 var nameDataId = elementObj[key];
                 tr.setAttribute('data-id',nameDataId)
 
