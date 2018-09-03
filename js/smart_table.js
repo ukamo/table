@@ -75,19 +75,6 @@ SmartTable.prototype.addSomeElements = function (arrSomeEl){
     //  var table = document.getElementById(this.containerId).children[0];
     for ( var i=0; i <this.arrSomeEl.length;i++){
         this.addElement(this.arrSomeEl[i]);
-        //TODO DELETE COMMENTS!
-        /*var tr = document.createElement('tr');
-        table.appendChild(tr);
-
-        for (var j=0; j <this.colums.length;j++){
-            var objFromArr = arrSomeEl[i]
-            var column = this.colums[j];
-            var rez =objFromArr[column.propertyName]
-            var td = document.createElement('td');
-            tr.appendChild(td);
-            td.innerHTML = rez;
-        }*/
-        //TODO END
     }
 };
 
@@ -106,17 +93,63 @@ SmartTable.prototype.deleteEl = function (ind){
             table.deleteRow(i)
         }
     }
-
-    //TODO REMOVE USEFUL COMMENT
-    /*  var trs = table.rows;
-      for(var i=0; i<trs.length; i++){
-          if(i == ind){
-              table.deleteRow(i)
-          }
-      }*/
-    //TODO END
-
 };
+
+SmartTable.prototype.styleBackground = function (arr_td){
+    this.arr_td = arr_td;
+    for(var i=0;i<arr_td.length;i++){
+        this.selected = arr_td[i].getAttribute('data-id');
+        arr_td[i].onclick=function(){
+            if ((this).style.backgroundColor == ""){
+                (this).style.backgroundColor = "#E6EE9C";
+            } else {
+                (this).style.backgroundColor = "";
+            }
+        }
+    }
+};
+
+SmartTable.prototype.selectElement= function (elNumb){
+    this.elNumb = elNumb;
+    var table = document.getElementById(this.containerId).children[0];
+    var trs = table.rows;
+    for(var i=0; i<trs.length; i++){
+        var indexForData = trs[i].getAttribute('data-id');
+        if(indexForData == this.elNumb ){
+            this.selected = this.data.find(indexForData)
+            if ((trs[i]).style.backgroundColor == ""){
+                (trs[i]).style.backgroundColor = "#E6EE9C";
+            } else {
+                (trs[i]).style.backgroundColor = "";
+            }
+        }
+    }
+}
+/*
+SmartTable.prototype.returnElement= function (){
+	var table = document.getElementById(this.containerId).children[0];
+    var trs = table.rows;
+	var objName = {};
+    for(var i=0; i<trs.length; i++){
+        	if ((trs[i]).style.backgroundColor != ""){
+				 for(var j=0; j<trs[i].length; j++){
+
+				 }
+			}
+	}
+
+}*/
+
+//TODO REMOVE USEFUL COMMENT
+/*  var trs = table.rows;
+  for(var i=0; i<trs.length; i++){
+      if(i == ind){
+          table.deleteRow(i)
+      }
+  }*/
+//TODO END
+
+
 
 //TODO REMOVE IT!
 /*Связать данные в таблице с htm
@@ -137,5 +170,13 @@ SmartTable.prototype.deleteEl = function (ind){
 data должна быть всегда синхронизирована с html
 */
 //TODO END
-
-
+/*Тебе нужно перенести код который отвечает за выделение элемента в код SmartTable js
+У тебя он ща в индексе*/
+/*
+как я писал, твоя таблица должна предоставлять функцию выделения элемента через код, типа
+table.selectElement(2) //2 это id
+и выделится соотвественно на экране 2 эелемент
+так же должна быть функция которая возвращает выделенный элемент, это не tr, а объект который имеет id как data-id атрибуте tr
+table.getSelectedElement() // вернет { id: 2, firstName: ....}
+эти две функции должны быть функции SmartTable
+*/
